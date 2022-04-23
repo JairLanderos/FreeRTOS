@@ -1,0 +1,47 @@
+#include "main.h"
+
+
+
+void menu_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void led_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void rtc_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void print_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void command_task(void* parameters)
+{
+	while(1)
+	{
+		/* Notify wait */
+
+		/* Process the user data (command) stored in input data queue */
+
+		/* Notify the command to relevant task */
+	}
+}

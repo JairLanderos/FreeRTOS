@@ -1,0 +1,61 @@
+#include "main.h"
+
+typedef enum
+{
+	sMainMenu = 0,
+	sLedEffect,
+	sRtcMenu,
+	sRtcTimeConfig,
+	sRtcDateConfig,
+	sRtcReport
+}state_t;
+
+typedef struct
+{
+	uint8_t payload[10];	// Store data bytes of the command
+	uint8_t length;			// Command length
+}command_t;
+
+void menu_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void led_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void rtc_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void print_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void command_task(void* parameters)
+{
+	while(1)
+	{
+		/* Notify wait */
+
+		/* Process the user data (command) stored in input data queue */
+
+		/* Notify the command to relevant task */
+	}
+}

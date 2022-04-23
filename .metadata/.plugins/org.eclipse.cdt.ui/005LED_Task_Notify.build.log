@@ -1,0 +1,20 @@
+19:52:46 **** Incremental Build of configuration Debug for project 005LED_Task_Notify ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/Fam. Landeros Franco/Desktop/Embedded Systems/FreeRTOS course/workspace/RTOS_workspace/common/ThirdParty/FreeRTOS/include" -I"C:/Users/Fam. Landeros Franco/Desktop/Embedded Systems/FreeRTOS course/workspace/RTOS_workspace/common/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I"C:/Users/Fam. Landeros Franco/Desktop/Embedded Systems/FreeRTOS course/workspace/RTOS_workspace/common/ThirdParty/SEGGER/Config" -I"C:/Users/Fam. Landeros Franco/Desktop/Embedded Systems/FreeRTOS course/workspace/RTOS_workspace/common/ThirdParty/SEGGER/OS" -I"C:/Users/Fam. Landeros Franco/Desktop/Embedded Systems/FreeRTOS course/workspace/RTOS_workspace/common/ThirdParty/SEGGER/SEGGER" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "005LED_Task_Notify.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Fam. Landeros Franco\Desktop\Embedded Systems\FreeRTOS course\workspace\RTOS_workspace\005LED_Task_Notify\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="005LED_Task_Notify.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 005LED_Task_Notify.elf
+ 
+arm-none-eabi-size   005LED_Task_Notify.elf 
+arm-none-eabi-objdump -h -S  005LED_Task_Notify.elf  > "005LED_Task_Notify.list"
+arm-none-eabi-objcopy  -O binary  005LED_Task_Notify.elf  "005LED_Task_Notify.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21928	     28	  80420	 102376	  18fe8	005LED_Task_Notify.elf
+Finished building: default.size.stdout
+ 
+Finished building: 005LED_Task_Notify.bin
+ 
+Finished building: 005LED_Task_Notify.list
+ 
+
+19:52:52 Build Finished. 0 errors, 0 warnings. (took 5s.557ms)
+

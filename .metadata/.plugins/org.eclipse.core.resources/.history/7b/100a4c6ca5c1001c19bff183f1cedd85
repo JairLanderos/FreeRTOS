@@ -1,0 +1,74 @@
+#include "main.h"
+
+void menu_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void led_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void rtc_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void print_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void command_task(void* parameters)
+{
+	BaseType_t status;
+	command_t cmd;
+
+	while(1)
+	{
+		/* Wait indefinitely for a notification */
+		status = xTaskNotifyWait(0, 0, NULL, portMAX_DELAY);
+		if (status == pdTRUE)
+		{
+			process_command(&cmd);
+		}
+
+		/* Process the user data (command) stored in input data queue */
+
+		/* Notify the command to relevant task */
+	}
+}
+
+void process_command(command_t *cmd)
+{
+	extract_command(cmd);
+
+	switch(current_state)
+	{
+		case sMainMenu:
+			xTaskNotify(handle_menu_task, (uint32_t)cmd, eSetValueWithOverwrite);
+			break;
+		case sLedEffect:
+			xTaskNotify(handle_led_task, (uint32_t)cmd, eSetValueWithOverwrite);
+			break;
+		case sRtcMenu:
+		case sRtcDateConfig:
+		case sRtcTimeConfig:
+		case sRtcReport:
+			xTaskNotify(handle_rtc_task, (uint32_t)cmd, eSetValueWithOverwrite);
+			break;
+	}
+}

@@ -1,0 +1,71 @@
+#include "main.h"
+
+/* All the possible states of the application */
+typedef enum
+{
+	sMainMenu = 0,
+	sLedEffect,
+	sRtcMenu,
+	sRtcTimeConfig,
+	sRtcDateConfig,
+	sRtcReport
+}state_t;
+
+/* Structure to handle the command */
+typedef struct
+{
+	uint8_t payload[10];	// Store data bytes of the command
+	uint8_t length;			// Command length
+}command_t;
+
+void menu_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void led_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void rtc_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void print_task(void* parameters)
+{
+	while(1)
+	{
+
+	}
+}
+
+void command_task(void* parameters)
+{
+	BaseType_t status;
+	command_t cmd;
+
+	while(1)
+	{
+		/* Wait indefinitely for a notification */
+		status = xTaskNotifyWait(0, 0, NULL, portMAX_DELAY);
+		if (status == pdTRUE)
+		{
+			process_command();
+		}
+
+		/* Process the user data (command) stored in input data queue */
+
+		/* Notify the command to relevant task */
+	}
+}

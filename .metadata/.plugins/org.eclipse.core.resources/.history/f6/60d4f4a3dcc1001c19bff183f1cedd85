@@ -1,0 +1,28 @@
+#include "main.h"
+
+void led_effect_stop(void)
+{
+	/* Stop the 4 timers that control the led toggling */
+	for (int i = 0 ; i < 4 ; i++)
+	{
+		xTimerStop(handle_led_timer[i], portMAX_DELAY);
+	}
+
+}
+
+void led_effect(int selector)
+{
+	/* Stop the current LED effect */
+	led_effect_stop();
+
+	/* Start the timer */
+	xTimerStart(handle_led_timer[selector - 1], portMAX_DELAY);
+}
+
+void LED_effect1(void)
+{
+	static int flag = 1;
+
+	/* Toggle all LEDs at the same time */
+	(flag ^= 1) ? turn_off_all_leds() : turn_on_all_leds();
+}
